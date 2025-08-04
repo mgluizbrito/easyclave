@@ -1,15 +1,25 @@
 package io.github.mgluiz.algorithms;
 
+import javax.xml.namespace.QName;
+
 public enum Algorithms {
     // Symmetric (Private Key)
-    AES,
-    DES,
+    AES("AES", "Advanced Encryption Standard"),
+    DES("DES", "Data Encryption Standard"),
 
     // Asymmetric (Public Key)
-    RSA,
-    ECC,
+    RSA("RSA", "Rivest-Shamir-Adleman"),
+    ECC("ECC", "Elliptic Curve Cryptography"),
 
     // HASH (No Key)
-    SHA256,
-    MD5,
+    MD5("MD5", "Message Digest Algorithm"),
+    SHA256("SHA-256", "Secure Hash Algorithm 256");
+
+    public final String NAME;
+    public final String DESC;
+
+    Algorithms(String name, String desc) {
+        this.NAME = name;
+        this.DESC = desc;
+    }
 }
