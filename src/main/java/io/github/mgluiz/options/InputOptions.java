@@ -7,11 +7,11 @@ import java.util.List;
 
 public class InputOptions {
 
-    @Option(names = {"-t", "--text"},
+    @Option(names = {"-m", "--msg"},
             arity = "1",
             description = "Aceita um texto para serem processados",
-            paramLabel = "TEXT")
-    public String text;
+            paramLabel = "MSG")
+    public String msg;
 
     @Option(names = {"-f", "--files"},
             arity = "1..*",
