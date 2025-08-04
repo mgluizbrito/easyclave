@@ -4,7 +4,6 @@ import io.github.mgluiz.algorithms.Algorithms;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
-import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.*;
@@ -23,7 +22,7 @@ public interface SymmetricAlgorithm {
     void fileEncrypt(File inputFile, File outputFile);
     void fileEncrypt(File inputFile, File outputFile, int keyBits);
 
-    void fileDecrypt(SecretKey key, File file);
+    void fileDecrypt(String base64Key, File inputFile, File outputFile);
 
     static void processFile(int cipherMode, File inputFile, File outputFile, SecretKey key, String tranformation) throws GeneralSecurityException {
         Cipher cipher = Cipher.getInstance(tranformation);
@@ -62,7 +61,7 @@ public interface SymmetricAlgorithm {
 
         System.out.println(Arrays.toString(key.getEncoded()));
         System.out.printf("CHAVE GERADA COM "+bits+" BITS, NÃO COMPARTILHE, NEM PERCA! Ou não será possível descriptografar\n" +
-                "KEY: "+ base64KeyEncoder(key));
+                "KEY: "+ base64KeyEncode(key));
         return key;
     }
     static SecretKey generateKey(Algorithms algo) throws NoSuchAlgorithmException{
@@ -72,15 +71,15 @@ public interface SymmetricAlgorithm {
 
         System.out.println(Arrays.toString(key.getEncoded()));
         System.out.printf("CHAVE GERADA COM "+128+" BITS, NÃO COMPARTILHE, NEM PERCA! Ou não será possível descriptografar\n" +
-                "KEY: "+ base64KeyEncoder(key));
+                "KEY: "+ base64KeyEncode(key));
         return key;
     }
 
-    static String base64KeyEncoder(SecretKey key){
+    static String base64KeyEncode(SecretKey key){
         return Base64.getEncoder().encodeToString(key.getEncoded());
     }
 
-    static SecretKey base64KeyDecoder(String keyBase64, Algorithms algo){
+    static SecretKey base64KeyDecode(String keyBase64, Algorithms algo){
         byte[] key = Base64.getDecoder().decode(keyBase64);
         return new SecretKeySpec(key, algo.toString());
     }
