@@ -22,7 +22,7 @@ public class EasyClave extends ArgsOptions implements Runnable {
 
         if (crypt.isEncrypt()){
 
-            if (input.hasMsg()) return;
+            if (input.hasMsg()) EncryptController.msgEncrypt(this.input.msg, this.algorithm);
             if (input.hasFiles()) EncryptController.fileEncrypt(this.input.files, this.algorithm);
         }
 
@@ -33,7 +33,7 @@ public class EasyClave extends ArgsOptions implements Runnable {
     }
 
     public static void main(String[] args){
-        int exitCode = new CommandLine(new EasyClave()).execute("-e", "-a=MD5", "-f=pom.xml");
+        int exitCode = new CommandLine(new EasyClave()).execute("-e", "-a=MD5", "-m", "pom.xml");
         System.exit(exitCode);
     }
 }
