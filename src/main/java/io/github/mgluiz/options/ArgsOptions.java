@@ -18,7 +18,7 @@ public abstract class ArgsOptions {
             Algorítmos Asimétricos (Utiliza-se de chaves públicas): RSA, ECC
             Algorítmos de HASH (Não possuem chave, nem decrypt): SHA256, MD5
             """)
-    public Algorithms algorithms;
+    public Algorithms algorithm;
 
     @Option(names = {"-k", "--keyBits"}, arity = "1", description = "Número de bits da chave a ser utilizada para criptografia/descriptografia simétrica", paramLabel = "128")
     public int keyBits = 128;

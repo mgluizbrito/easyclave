@@ -35,4 +35,6 @@ public interface HashAlgorithm {
         return sb.toString();
     };
 
+    File fileEncrypt(File fileInput, File fileOutput);
+
 }

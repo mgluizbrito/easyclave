@@ -11,6 +11,7 @@ import java.security.GeneralSecurityException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.util.Base64;
+import java.util.List;
 
 public interface SymmetricAlgorithm {
 
@@ -43,6 +44,7 @@ public interface SymmetricAlgorithm {
             byte[] outputBytes = cipher.doFinal();
             if (outputBytes != null) outputStream.write(outputBytes);
 
+            System.out.println("\nARQUIVO ENCRIPTADO COM SUCESSO!");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -59,7 +61,6 @@ public interface SymmetricAlgorithm {
         keyGen.init(bits); // 128, 192 ou 256 bits
         SecretKey key = keyGen.generateKey();
 
-        System.out.println(Arrays.toString(key.getEncoded()));
         System.out.printf("CHAVE GERADA COM "+bits+" BITS, NÃO COMPARTILHE, NEM PERCA! Ou não será possível descriptografar\n" +
                 "KEY: "+ base64KeyEncode(key));
         return key;
@@ -69,8 +70,7 @@ public interface SymmetricAlgorithm {
         keyGen.init(128); // 128, 192 ou 256 bits
         SecretKey key = keyGen.generateKey();
 
-        System.out.println(Arrays.toString(key.getEncoded()));
-        System.out.printf("CHAVE GERADA COM "+128+" BITS, NÃO COMPARTILHE, NEM PERCA! Ou não será possível descriptografar\n" +
+        System.out.printf("CHAVE GERADA COM "+128+" BITS, NÃO COMPARTILHE, NEM PERCA! Ou não será possível descriptografar.\n" +
                 "KEY: "+ base64KeyEncode(key));
         return key;
     }
