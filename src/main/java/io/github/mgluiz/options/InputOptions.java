@@ -18,4 +18,11 @@ public class InputOptions {
             description = "Aceita um ou mais arquivos a serem processados pelo algorítimo",
             paramLabel = "FILES")
     public List<File> files;
+
+    public boolean hasMsg(){
+        return msg != null;
+    }
+    public boolean hasFiles(){
+        return files != null;
+    }
 }
