@@ -45,7 +45,7 @@ public class EasyClave extends ArgsOptions implements Runnable {
     }
 
     public static void main(String[] args){
-        int exitCode = new CommandLine(new EasyClave()).execute("-e", "-a=SHA256", "-f", "pom.xml");
+        int exitCode = new CommandLine(new EasyClave()).execute("-e", "-a=AES", "-m", "pom.xml");
         System.exit(exitCode);
     }
 }

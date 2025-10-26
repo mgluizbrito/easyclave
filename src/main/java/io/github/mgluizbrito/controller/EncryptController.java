@@ -1,13 +1,16 @@
 package io.github.mgluizbrito.controller;
 
+import io.github.mgluizbrito.EasyClave;
 import io.github.mgluizbrito.algorithms.Algorithms;
 import io.github.mgluizbrito.algorithms.services.AESService;
 import io.github.mgluizbrito.algorithms.services.MD5Service;
 import io.github.mgluizbrito.algorithms.services.SHA256Service;
+import picocli.CommandLine;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.security.GeneralSecurityException;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
@@ -41,14 +44,23 @@ public class EncryptController {
             }
 
             if (algorithm.equals(Algorithms.AES)){
+                System.out.println("ORIGINAL FILE: " + file.getAbsolutePath());
+                try{
+                    File outputFile = new File(file.getName()+".aes");
+                    new AESService().encryptFile(file, outputFile);
+                    System.out.println("ENCRYPTED FILE: " + outputFile.getName());
 
-                System.out.println("Encriptado do arquivo \""+file.getName()+"\" gerado como " + file.getName()+".enc (Algorítimo de AES)");
-                File outputFile = new File(file.getName()+".enc");
-
-                new AESService().fileEncrypt(file, outputFile);
-                return;
+                } catch (GeneralSecurityException | IOException e) {
+                    System.err.println("Error processing decryption: " + e.getMessage());
+                    throw new CommandLine.ExecutionException(new CommandLine(new EasyClave()), "Encrypt ERROR", e);
+                }
             }
+            System.out.println();
         }
+        System.out.printf("""
+                %d files successfully encrypted.
+                ----------------------------------*----------------------------------
+                %n""", files.size());
     }
 
     public static void msgEncrypt(String msg, Algorithms algorithm){
@@ -63,5 +75,20 @@ public class EncryptController {
             System.out.println("ORIGINAL MESSAGE: "+ msg);
             System.out.println("SHA256 HASH: "+ new SHA256Service().msgHash(msg));
         };
+
+        if (algorithm.equals(Algorithms.AES)){
+            System.out.println("ORIGINAL MESSAGE: "+ msg);
+            try {
+                System.out.println("ENCRYPTED MESSAGE: "+ new AESService().encryptMessage(msg));
+            } catch (GeneralSecurityException e) {
+                System.err.println("Error processing decryption: " + e.getMessage());
+                throw new CommandLine.ExecutionException(new CommandLine(new EasyClave()), "Encrypt ERROR", e);
+            }
+        }
+
+        System.out.println("""
+                Message successfully encrypted.
+                ----------------------------------*----------------------------------
+                """);
     }
 }
