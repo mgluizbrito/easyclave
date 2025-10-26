@@ -60,6 +60,8 @@ public interface HashAlgorithm {
             sb.append(String.format("%02x", b));
         }
 
+        System.out.printf("HASH %s: %s%n", algo.NAME, sb.toString());
+        System.out.println("HASH armazenado em "+file.getName()+"." + (algo.NAME).toLowerCase());
         return sb.toString();
     };
 }
