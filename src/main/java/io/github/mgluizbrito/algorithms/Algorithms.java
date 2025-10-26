@@ -1,4 +1,4 @@
-package io.github.mgluiz.algorithms;
+package io.github.mgluizbrito.algorithms;
 
 import javax.xml.namespace.QName;
 

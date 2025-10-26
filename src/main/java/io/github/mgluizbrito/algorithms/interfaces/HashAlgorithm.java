@@ -1,6 +1,6 @@
-package io.github.mgluiz.algorithms.interfaces;
+package io.github.mgluizbrito.algorithms.interfaces;
 
-import io.github.mgluiz.algorithms.Algorithms;
+import io.github.mgluizbrito.algorithms.Algorithms;
 
 import java.io.File;
 import java.io.FileInputStream;

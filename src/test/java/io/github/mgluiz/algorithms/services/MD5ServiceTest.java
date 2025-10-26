@@ -1,12 +1,12 @@
 package io.github.mgluiz.algorithms.services;
 
-import io.github.mgluiz.algorithms.Algorithms;
+import io.github.mgluizbrito.algorithms.Algorithms;
+import io.github.mgluizbrito.algorithms.services.MD5Service;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.util.Objects;
 
-import static org.junit.jupiter.api.Assertions.*;
 class MD5ServiceTest {
 
     @Test

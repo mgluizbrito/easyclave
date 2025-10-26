@@ -1,6 +1,6 @@
-package io.github.mgluiz.options;
+package io.github.mgluizbrito.options;
 
-import io.github.mgluiz.algorithms.Algorithms;
+import io.github.mgluizbrito.algorithms.Algorithms;
 import picocli.CommandLine.ArgGroup;
 import picocli.CommandLine.Option;
 

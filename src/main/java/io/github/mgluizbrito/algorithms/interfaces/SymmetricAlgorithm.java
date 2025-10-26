@@ -1,6 +1,6 @@
-package io.github.mgluiz.algorithms.interfaces;
+package io.github.mgluizbrito.algorithms.interfaces;
 
-import io.github.mgluiz.algorithms.Algorithms;
+import io.github.mgluizbrito.algorithms.Algorithms;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -9,9 +9,7 @@ import javax.crypto.spec.SecretKeySpec;
 import java.io.*;
 import java.security.GeneralSecurityException;
 import java.security.NoSuchAlgorithmException;
-import java.util.Arrays;
 import java.util.Base64;
-import java.util.List;
 
 public interface SymmetricAlgorithm {
 

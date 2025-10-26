@@ -1,15 +1,13 @@
-package io.github.mgluiz.algorithms.services;
+package io.github.mgluizbrito.algorithms.services;
 
-import io.github.mgluiz.algorithms.Algorithms;
-import io.github.mgluiz.algorithms.interfaces.SymmetricAlgorithm;
+import io.github.mgluizbrito.algorithms.Algorithms;
+import io.github.mgluizbrito.algorithms.interfaces.SymmetricAlgorithm;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import java.io.File;
-import java.util.Arrays;
-import java.util.Base64;
 
-import static io.github.mgluiz.algorithms.interfaces.SymmetricAlgorithm.processFile;
+import static io.github.mgluizbrito.algorithms.interfaces.SymmetricAlgorithm.processFile;
 
 public class AESService implements SymmetricAlgorithm {
     

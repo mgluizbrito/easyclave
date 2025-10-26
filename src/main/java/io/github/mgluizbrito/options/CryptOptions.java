@@ -1,4 +1,4 @@
-package io.github.mgluiz.options;
+package io.github.mgluizbrito.options;
 
 import picocli.CommandLine.Option;
 

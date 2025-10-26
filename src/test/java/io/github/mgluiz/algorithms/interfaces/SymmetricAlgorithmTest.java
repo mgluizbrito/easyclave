@@ -1,6 +1,7 @@
 package io.github.mgluiz.algorithms.interfaces;
 
-import io.github.mgluiz.algorithms.Algorithms;
+import io.github.mgluizbrito.algorithms.Algorithms;
+import io.github.mgluizbrito.algorithms.interfaces.SymmetricAlgorithm;
 import org.junit.jupiter.api.Test;
 
 import javax.crypto.SecretKey;

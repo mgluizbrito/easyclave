@@ -1,9 +1,9 @@
-package io.github.mgluiz.controller;
+package io.github.mgluizbrito.controller;
 
-import io.github.mgluiz.algorithms.Algorithms;
-import io.github.mgluiz.algorithms.services.AESService;
-import io.github.mgluiz.algorithms.services.MD5Service;
-import io.github.mgluiz.algorithms.services.SHA256Service;
+import io.github.mgluizbrito.algorithms.Algorithms;
+import io.github.mgluizbrito.algorithms.services.AESService;
+import io.github.mgluizbrito.algorithms.services.MD5Service;
+import io.github.mgluizbrito.algorithms.services.SHA256Service;
 
 import java.io.File;
 import java.io.FileWriter;

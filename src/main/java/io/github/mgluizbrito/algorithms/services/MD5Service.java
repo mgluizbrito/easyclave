@@ -1,6 +1,6 @@
-package io.github.mgluiz.algorithms.services;
+package io.github.mgluizbrito.algorithms.services;
 
-import io.github.mgluiz.algorithms.interfaces.HashAlgorithm;
+import io.github.mgluizbrito.algorithms.interfaces.HashAlgorithm;
 import org.apache.commons.codec.digest.DigestUtils;
 
 public class MD5Service implements HashAlgorithm {
