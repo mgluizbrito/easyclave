@@ -28,5 +28,5 @@ public abstract class ArgsOptions {
     public Algorithms algorithm;
 
     @Option(names = {"-kb", "--keyBits"}, arity = "1", description = "Número de bits da chave a ser utilizada para criptografia/descriptografia simétrica", paramLabel = "128")
-    public int keyBits = 128;
+    public int keyBits = 2048;
 }
