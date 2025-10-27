@@ -26,8 +26,12 @@ public class EasyClave extends ArgsOptions implements Runnable {
                                   |___/                         \s
                 """);
 
-        if (crypt == null || input == null){
+        if (crypt == null || input == null) {
             CommandLine.usage(this, System.out);
+            return;
+        }
+        if (crypt.decrypt && key == null) {
+            System.err.println("ERROR: ao usar decrypt, é obrigatório também passar uma key (-k).");
             return;
         }
 
@@ -39,13 +43,12 @@ public class EasyClave extends ArgsOptions implements Runnable {
 
         if (crypt.isDecrypt()){
             System.out.println("CRYPT MODE: " + "Decrypt");
-            System.out.println("Decripto");
             return;
         };
     }
 
     public static void main(String[] args){
-        int exitCode = new CommandLine(new EasyClave()).execute("-e", "-a=AES", "-m", "pom.xml");
+        int exitCode = new CommandLine(new EasyClave()).execute("-d", "-a=AES", "-m", "osuR+tdvWg0eEYfKCv0tFQ==");
         System.exit(exitCode);
     }
 }

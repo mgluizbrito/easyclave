@@ -11,6 +11,13 @@ public abstract class ArgsOptions {
     @ArgGroup(exclusive = false)
     public InputOptions input;
 
+    @Option(names = {"-k", "--key"}, arity = "1", paramLabel = "DECRYPT KEY", description = """
+            Chave para descriptar uma mensagem ou arquivo.
+            ARGUMENTOS OBRIGATÓRIOS: -d ou --decrypt
+            Agorítmos permitidos: AES
+            """)
+    public String key;
+
     @Option(names = {"-a", "--algo"}, arity = "1", paramLabel = "ALGORITHM", description = """
             Algorítimo a ser utilizado para criptografia ou descriptografia.
             
@@ -20,6 +27,6 @@ public abstract class ArgsOptions {
             """)
     public Algorithms algorithm;
 
-    @Option(names = {"-k", "--keyBits"}, arity = "1", description = "Número de bits da chave a ser utilizada para criptografia/descriptografia simétrica", paramLabel = "128")
+    @Option(names = {"-kb", "--keyBits"}, arity = "1", description = "Número de bits da chave a ser utilizada para criptografia/descriptografia simétrica", paramLabel = "128")
     public int keyBits = 128;
 }
